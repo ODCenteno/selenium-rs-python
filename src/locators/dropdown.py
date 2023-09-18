@@ -14,9 +14,6 @@ dropdown.select_by_index(0)
 dropdown.select_by_visible_text('Female')
 #dropdown.select_by_value()
 
-driver.get('https://rahulshettyacademy.com/angularpractice')
-
-
 
 # Dinamic Dropdown
 driver.get('https://rahulshettyacademy.com/dropdownsPractise/')
