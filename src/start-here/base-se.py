@@ -7,4 +7,4 @@ driver = webdriver.Chrome(service=service_obj)
 
 # Visit a web page and finish interaction
 driver.get('https://www.google.com/')
-driver.close()
+driver.quit()
