@@ -16,7 +16,7 @@ class PageActions:
         return self.driver.find_element(*selector)
 
     def find_elements_by_CSS(self, selector):
-        return self.driver.find_elements(By.CSS_SELECTOR, selector)
+        return self.driver.find_elements(*selector)
 
     def click(self, selector: tuple):
         """
