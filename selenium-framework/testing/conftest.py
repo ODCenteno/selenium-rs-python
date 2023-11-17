@@ -3,6 +3,9 @@ from selenium import webdriver
 from selenium.webdriver.chrome.service import Service as ChromeService
 from selenium.webdriver.firefox.service import Service as FirefoxService
 
+BASE_URL = "https://rahulshettyacademy.com/angularpractice/"
+
+
 def pytest_addoption(parser):
     parser.addoption(
         "--browser",
@@ -16,7 +19,7 @@ def pytest_addoption(parser):
 @pytest.fixture(scope="class")
 def setup(request):
     # Obteniendo el parámetro del CLI para el navegador elegido
-    browser = request.config.getoption("--browser")
+    browser = request.config.getoption("browser")
 
     if browser == "chrome":
         service = ChromeService()
@@ -29,9 +32,9 @@ def setup(request):
     else:
         raise ValueError(f'Browser {browser} not supported.')
 
-    driver.get("http://www.google.com")
+    driver.implicitly_wait(5)
+    driver.get(BASE_URL)
     driver.maximize_window()
-
 
     # Asignamos el driver a la instancia request para utilizarlo en las Test classes
     # Una instancia request se genera automáticamente con pytest.fixture
