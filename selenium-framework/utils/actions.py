@@ -1,3 +1,4 @@
+from tkinter.tix import Select
 from selenium.webdriver import Keys
 from selenium.webdriver.common.by import By
 from selenium.webdriver.common.action_chains import ActionChains
@@ -79,3 +80,7 @@ class PageActions:
             "for (var i = 0, k; i < ls.length; ++i) "
             "  items[k = ls.key(i)] = ls.getItem(k); "
             "return items; ")
+
+    def select_dropdown_option_by_text(self, locator, text):
+        select = Select(locator)
+        return select.select_by_visible_text(text)
